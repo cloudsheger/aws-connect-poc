@@ -1,4 +1,23 @@
-.terraform
-terraform.tfsate.backup
-terraform.tfsate
-.terraform.lock.hcl
+# Ignore .terraform directory
+.terraform/
+
+# Ignore local .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Ignore .tfvars files that may contain sensitive data
+*.tfvars
+
+# Ignore log files
+*.log
+
+# Ignore any files in the .idea directory
+.idea/
+
+# Ignore any files in the .vscode directory
+.vscode/
+
+# Ignore compiled binaries and object code
+*.o
+*.out
+*.exe

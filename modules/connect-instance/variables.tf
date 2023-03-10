@@ -2,10 +2,6 @@ variable "instance_alias" {
   type = string
 }
 
-variable "identity_management_type" {
-  type = string
-}
-
 variable "inbound_calls_enabled" {
   type = bool
 }
@@ -14,19 +10,17 @@ variable "outbound_calls_enabled" {
   type = bool
 }
 
-variable "inbound_call_whisper_message" {
-  type = string
-  default = "cccc"
-}
+//variable "logging_enabled" {
+ // type = bool
+//}
 
-variable "outbound_call_whisper_message" {
-  type = string
-}
-
-variable "outbound_call_spam_threshold" {
+variable "storage_capacity" {
   type = number
 }
 
-variable "tags" {
+variable "instance_tags" {
   type = map(string)
+}
+variable "identity_management_type" {
+  type = string
 }
