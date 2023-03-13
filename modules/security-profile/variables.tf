@@ -8,17 +8,13 @@ variable "security_profile_description" {
   description = "The description of the Amazon Connect security profile"
 }
 
-variable "security_profile_tags" {
+//variable "tags" {}
+variable "tags" {
   type        = map(string)
-  description = "A map of tags to apply to the Amazon Connect security profile"
+  description = "A map of tags to apply to the Amazon Connect queue"
   default     = {}
 }
 
-variable "kms_key_id" {
-  type        = string
-  description = "The ID of the AWS KMS key used for encryption of Amazon Connect data in this security profile"
-}
-
-variable "connect_instance_id" {
+variable "instance_id" {
   type = string # Define the argument here
 }

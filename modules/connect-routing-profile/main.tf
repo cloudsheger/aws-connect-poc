@@ -1,27 +1,25 @@
 resource "aws_connect_routing_profile" "connect_routing_profile" {
-  name                 = var.routing_profile_name
-  default_outbound_queue_id = var.default_outbound_queue_id
-  description          = var.routing_profile_description
-  tags                 = var.routing_profile_tags
+  default_outbound_queue_id   = var.default_outbound_queue_id
+  name                        = var.name
+  description                 = var.description
+  //default_outbound_queue_name = var.default_outbound_queue_name
+  //chat_channel_concurrency    = var.chat_channel_concurrency
+  //chat_channel                = var.chat_channel
+  instance_id                 = var.instance_id
 
-  queues = [
-    {
-      queue_id = var.voice_queue_id
-      priority = 1
-      delay    = 0
-      channel  = "VOICE"
-      concurrency = {
-        max = var.voice_media_concurrency
-      }
-    },
-    {
-      queue_id = var.chat_queue_id
-      priority = 2
-      delay    = 0
-      channel  = "CHAT"
-      concurrency = {
-        max = var.chat_media_concurrency
-      }
-    },
-  ]
+  # Add a media_concurrencies block for voice interactions
+  media_concurrencies {
+    //media_type = "VOICE"
+    channel = var.channel
+    concurrency = var.concurrency
+  }
+
+  queue_configs {
+    channel  = "VOICE"
+    delay    = 2
+    priority = 1
+    queue_id = var.queue_id
+  }
+
+tags            = var.tags
 }

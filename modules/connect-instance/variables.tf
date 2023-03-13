@@ -13,14 +13,12 @@ variable "outbound_calls_enabled" {
 //variable "logging_enabled" {
  // type = bool
 //}
-
-variable "storage_capacity" {
-  type = number
-}
-
-variable "instance_tags" {
-  type = map(string)
-}
 variable "identity_management_type" {
   type = string
+}
+
+variable "tags" {
+  type        = map(string)
+  description = "A map of tags to apply to the Amazon Connect instance"
+  default     = {}
 }
